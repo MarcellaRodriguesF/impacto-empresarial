@@ -2,7 +2,9 @@ function App() {
 
   return (
     <>
-     <h1>Hello </h1>
+     <div className="text-gradient">
+        <h1>Impacto em construção</h1>
+      </div>
     </>
   )
 }

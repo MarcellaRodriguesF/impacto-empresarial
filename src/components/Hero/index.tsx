@@ -1,4 +1,3 @@
-// Hero.jsx
 import styles from "./Hero.module.css";
 import destaque from "/sub-linha.svg";
 

@@ -17,8 +17,3 @@ body {
   --bg-light: #f6faf9;
 }
 
-.text-gradient {
-  background: var(--gradient-bg);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}

@@ -6,16 +6,17 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.overlay}>
         <div className={styles.content}>
-          <h1>
+          <h1 className={styles.animarTitulo}>
             Mais <span className={styles.amarelo}>organização</span> e{" "}
             <span className={styles.amarelo}>eficiência</span> para sua empresa
           </h1>
+
           <img
             src={destaque}
             alt="Sublinhado decorativo"
             className={styles.decoracao}
           />
-          <p>
+          <p className={styles.animarParagrafo}>
             Otimize processos, maximize lucros e alcance os melhores índices do
             mercado. Seja nosso próximo parceiro de sucesso
           </p>

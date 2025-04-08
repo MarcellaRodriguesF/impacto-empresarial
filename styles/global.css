@@ -1,32 +1,24 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-  }
-  
-  :root {
-    --gold: #C9963F;
-    --dark: #191A15;
-    --bg-light: #F6FAF9;
-  
-    --gradient-bg: url('/bg.png'); 
-  }
-  
-  .header {
-    background: var(--gradient-bg);
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .text-gradient {
-    background: var(--gradient-bg);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+
+:root {
+  --gold: linear-gradient(to right, #d8a527, #fce24c, #d8a527);
+  --yellow: #e5b900;
+  --dark: #191a15;
+  --bg-light: #f6faf9;
+}
+
+.text-gradient {
+  background: var(--gradient-bg);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

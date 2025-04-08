@@ -1,5 +1,6 @@
 import styles from './Header.module.css';
 import logo from '/logo.svg'; 
+import { List } from 'phosphor-react';
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
           <a href="#solucoes">Soluções</a>
           <a href="#quemsomos">Quem somos</a>
           <a href="#contato">Contato</a>
+          <List size={32} className={styles.menuIcon} />
         </nav>
       </div>
     </header>

@@ -1,12 +1,16 @@
-function App() {
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
+function App() {
   return (
     <>
-     <div className="text-gradient">
-        <h1>Impacto em construção</h1>
-      </div>
+      {" "}
+      <Header />        <Hero />
+
+      {/* <Container>
+      </Container> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

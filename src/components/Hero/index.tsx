@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import styles from "./Hero.module.css";
 import destaque from "/sub-linha.svg";
 
@@ -20,7 +21,11 @@ export default function Hero() {
             Otimize processos, maximize lucros e alcance os melhores índices do
             mercado. Seja nosso próximo parceiro de sucesso
           </p>
-          <button className={styles.botao}>Entre em contato</button>
+          <button
+            className={classNames(styles.animarBotao, styles.botao)}
+          >
+            Entre em contato
+          </button>
         </div>
       </div>
     </section>

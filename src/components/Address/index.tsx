@@ -4,7 +4,7 @@ import styles from "./Address.module.css";
 export function Address() {
   return (
     <>
-      <section className={styles.container}>
+      <section id={"contato"} className={styles.container}>
         <div className={styles.box}>
           <div className={styles.address}>
             <span className={styles.amarelo}>ENDEREÇO</span>
@@ -34,7 +34,7 @@ export function Address() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Desenvolvido por MFR Agência
+          Desenvolvido por Agência MFR.
         </a>
       </footer>
     </>

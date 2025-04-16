@@ -4,7 +4,7 @@ import { ButtonContact } from "../ButtonContact";
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section id="home" className={styles.hero}>
       <div className={styles.overlay}>
         <div className={styles.content}>
           <h1 className={styles.animarTitulo}>

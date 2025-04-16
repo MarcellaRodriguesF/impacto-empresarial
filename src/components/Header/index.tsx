@@ -27,17 +27,31 @@ export default function Header() {
         </nav>
       </div>
 
-      <div className={`${styles.backdrop} ${isModalOpen ? styles.show : ''}`} onClick={closeModal} />
+      <div
+        className={`${styles.backdrop} ${isModalOpen ? styles.show : ""}`}
+        onClick={closeModal}
+      />
 
-<aside className={`${styles.mobileMenu} ${isModalOpen ? styles.open : ''}`} onClick={(e) => e.stopPropagation()}>
-  <button className={styles.closeButton} onClick={closeModal}>
-    <X size={32} />
-  </button>
-  <a href="#home" onClick={closeModal}>Home</a>
-  <a href="#solucoes" onClick={closeModal}>Soluções</a>
-  <a href="#quemsomos" onClick={closeModal}>Quem somos</a>
-  <a href="#contato" onClick={closeModal}>Contato</a>
-</aside>
+      <aside
+        className={`${styles.mobileMenu} ${isModalOpen ? styles.open : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className={styles.closeButton} onClick={closeModal}>
+          <X size={32} color="#000" />
+        </button>
+        <a href="#home" onClick={closeModal}>
+          Home
+        </a>
+        <a href="#solucoes" onClick={closeModal}>
+          Soluções
+        </a>
+        <a href="#quemsomos" onClick={closeModal}>
+          Quem somos
+        </a>
+        <a href="#contato" onClick={closeModal}>
+          Contato
+        </a>
+      </aside>
     </header>
   );
 }

@@ -55,3 +55,71 @@
     cursor: pointer;
   }
 }
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.backdrop.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-width: 300px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); 
+  padding: 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 1000;
+  transition: right 0.3s ease;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobileMenu.open {
+  right: 0;
+}
+
+.mobileMenu a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark);
+  transition: color 0.3s;
+}
+
+.mobileMenu a:hover {
+  color: var(--gold);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  align-self: flex-end;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  .mobileMenu {
+    display: none;
+  }
+
+  .backdrop {
+    display: none;
+  }
+}

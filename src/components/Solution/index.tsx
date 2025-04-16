@@ -3,7 +3,7 @@ import styles from "./Solution.module.css";
 
 export function Solution() {
   return (
-    <section className={styles.solutionsSection}>
+    <section id="#solucoes" className={styles.solutionsSection}>
       <h2 className={styles.title}>SOLUÇÕES</h2>
 
       <div className={styles.content}>

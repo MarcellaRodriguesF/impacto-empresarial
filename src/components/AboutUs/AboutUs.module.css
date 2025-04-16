@@ -1,74 +1,79 @@
 .about {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem 9.6rem;
-    background: #f9f9f9;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 2rem;
-    letter-spacing: 0.2em;
-    margin-bottom: 3rem;
-  }
-  
-  .members {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 900px;
-    gap: 3rem;
-    align-items: center;
-  }
-  
-  .member {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
-    text-align: left;
-  }
-  
-  .photo {
-    border-radius: 8px;
-    object-fit: contain;
-  }
-  
-  .info {
-    flex: 1;
-  }
-  
-  .name {
-    color: var(--gold);
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .description {
-    color: #333;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  
-  .awards {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-    margin-top: 3rem;
-    font-size: 1rem;
-  }
-  
-  .awardImage {
-    margin-top: 1rem;
-  }
-  
-
-  @media (max-width: 1070px) {
-    .about {
-        padding: 4rem 2rem;
-    }
+  padding: 4rem 2rem;
+  background-color: #fdfdfd;
+  text-align: center;
 }
+
+.title {
+  text-align: center;
+  letter-spacing: 0.4rem;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: var(--dark);
+}
+.members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+}
+
+.member {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.member:hover {
+  transform: translateY(-5px);
+}
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  border: 3px solid #eaeaea;
+}
+
+.name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: var(--dark);
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.awards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+.awardImage {
+    width: 150px;
+    height: auto;
+    transition: transform 0.4s ease;
+  }
+  
+  .awardImage:hover {
+    transform: scale(1.1);
+  }

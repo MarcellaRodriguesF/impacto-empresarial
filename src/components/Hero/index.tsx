@@ -1,6 +1,6 @@
-import classNames from "classnames";
 import styles from "./Hero.module.css";
 import destaque from "/sub-linha.svg";
+import { ButtonContact } from "../ButtonContact";
 
 export default function Hero() {
   return (
@@ -21,11 +21,7 @@ export default function Hero() {
             Otimize processos, maximize lucros e alcance os melhores índices do
             mercado. Seja nosso próximo parceiro de sucesso
           </p>
-          <button
-            className={classNames(styles.animarBotao, styles.botao)}
-          >
-            Entre em contato
-          </button>
+          <ButtonContact />
         </div>
       </div>
     </section>

@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark);
+  padding: 4rem 9rem;
+}
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Cria 2 colunas de tamanho igual */
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  width: 100%;
+  gap: 2rem; /* Espaçamento entre os elementos */
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  text-align: left;
+  color: var(--bg-light);
+  gap: 0.5rem;
+}
+
+.amarelo {
+  font-size: 2.5rem;
+  letter-spacing: 0.4rem;
+  font-weight: 600;
+  background: var(--gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.agencyName {
+  color: var(--gray);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.agencyName:hover {
+  color: var(--dark);
+  scale: 1.05;
+  transition: all 0.3s ease-in-out;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 4rem 2rem;
+  }
+
+  .box {
+    grid-template-columns: 1fr; /* Em telas menores, os itens ficam um abaixo do outro */
+  }
+}

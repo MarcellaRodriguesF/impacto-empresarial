@@ -1,6 +1,7 @@
 import styles from "./Hero.module.css";
 import destaque from "/sub-linha.svg";
 import { ButtonContact } from "../ButtonContact";
+import WhatsAppButton from "../WhatsAppButton";
 
 export default function Hero() {
   return (
@@ -24,6 +25,7 @@ export default function Hero() {
           <ButtonContact />
         </div>
       </div>
+      <WhatsAppButton />
     </section>
   );
 }

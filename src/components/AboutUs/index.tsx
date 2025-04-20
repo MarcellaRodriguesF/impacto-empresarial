@@ -1,11 +1,19 @@
+import { motion } from "framer-motion";
 import styles from "./AboutUs.module.css";
 
 export function AboutUs() {
   return (
     <section id="quemsomos" className={styles.about}>
       <h2 className={styles.title}>QUEM SOMOS</h2>
+
       <div className={styles.members}>
-        <div className={styles.member}>
+        <motion.div
+          className={styles.member}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+        >
           <img
             className={styles.photo}
             src="/kauedelnero.png"
@@ -21,9 +29,15 @@ export function AboutUs() {
               segurança legal das empresas atendidas.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className={styles.member}>
+        <motion.div
+          className={styles.member}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <img
             className={styles.photo}
             src="/lucasveiga.png"
@@ -39,10 +53,15 @@ export function AboutUs() {
               crescimento sustentável dos negócios.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className={styles.awards}>
+      <motion.div
+        className={styles.awards}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
         <img
           src="/selo-premio.png"
           alt="Prêmio Melhores do Ano"
@@ -55,7 +74,7 @@ export function AboutUs() {
           <br />
           1º Lugar na categoria Assessoria Empresarial em Uberlândia/MG.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }

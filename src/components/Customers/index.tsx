@@ -17,8 +17,14 @@ export default function Customers() {
           width={200}
           height={200}
         />
+         <img
+          src="/frios-cia.svg"
+          alt="Giro trasnportes"
+          width={200}
+          height={200}
+        />
         <img
-          src="/customer-gt.svg"
+          src="/sindicos.svg"
           alt="Giro trasnportes"
           width={200}
           height={200}

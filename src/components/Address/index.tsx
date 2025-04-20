@@ -9,8 +9,13 @@ export default function Address() {
         <div className={`${styles.column} ${styles.logoArea}`}>
           <img src="/logo_white.svg" alt="Logo da empresa" width={150} />
           <div className={styles.socialIcons}>
-            <img src="/logo-facebook.svg" alt="Facebook" width={20} />
-            <img src="/logo-instagram.svg" alt="Instagram" width={20} />
+            <a
+              href="https://www.instagram.com/impactogestaoempresarial/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/logo-instagram.svg" alt="Instagram" width={20} />
+            </a>
           </div>
         </div>
         {/* Coluna 2 - Contato */}
@@ -48,7 +53,7 @@ export default function Address() {
       <footer className={styles.footer}>
         {" "}
         © 2025 Todos os direitos reservados | Desenvolvido por{" "}
-        <a>
+        <a href="https://www.instagram.com/hidedesign_/" target="_blank">
           <span className={styles.customStrike}>hide</span>
           design
         </a>

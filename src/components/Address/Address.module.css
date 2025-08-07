@@ -1,76 +1,173 @@
 .addressSection {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  background-color: #151510;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  background: linear-gradient(135deg, #0f0f0a 0%, #1a1a15 50%, #0f0f0a 100%);
   color: white;
-  padding: 3rem 9rem;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
+  padding: 4rem 8rem;
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
+.addressSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #f1c94f 50%,
+    transparent 100%
+  );
+  opacity: 0.3;
+}
 
 .logoArea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  border: 1px solid rgba(241, 201, 79, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.logoArea:hover {
+  border-color: rgba(241, 201, 79, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(241, 201, 79, 0.1);
 }
 
 .logoArea img {
-  width: 200px;
+  width: 180px;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
 }
 
-.socialIcons img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.socialIcons img:hover {
-  transform: scale(1.1);
-  filter: brightness(0.8);
+.logoArea:hover img {
+  transform: scale(1.05);
 }
 
 .socialIcons {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.itens {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1rem;
+.socialIcons img {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s ease;
+  filter: brightness(0.8);
 }
 
-.itens span {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
+.socialIcons img:hover {
+  transform: scale(1.15) rotate(5deg);
+  filter: brightness(1) drop-shadow(0 2px 8px rgba(241, 201, 79, 0.4));
 }
 
 .contactArea {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .contactArea h2 {
-  font-size: 1.2rem;
-  letter-spacing: 0.4rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.3rem;
   color: #f1c94f;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.contactArea h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #f1c94f, transparent);
+}
+
+.itens {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.itens span {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.itens span:hover {
+  background: rgba(241, 201, 79, 0.05);
+  border-color: rgba(241, 201, 79, 0.2);
+  transform: translateX(4px);
+}
+
+.itens span svg {
+  color: #f1c94f;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.itens span div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.itens span div strong {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.itens span div small {
+  color: #b0b0b0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  word-break: break-word;
 }
 
 .contactArea p,
 .linksArea p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: var(--neutral);
+  margin: 0;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  line-height: 1.6;
 }
 
 .ctaColumn {
@@ -78,79 +175,245 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
+  padding: 2rem;
+  background: rgba(241, 201, 79, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(241, 201, 79, 0.1);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.ctaColumn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(241, 201, 79, 0.05) 0%,
+    transparent 100%
+  );
+  border-radius: 16px;
+  pointer-events: none;
 }
 
 .ctaColumn h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #f1c94f;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .ctaColumn p {
-  font-size: 1.125rem;
-  color: var(--neutral);
+  font-size: 1rem;
+  color: #d0d0d0;
   margin: 0;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
 .footer {
   text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  color: #ccc;
+  padding: 2rem;
+  font-size: 0.875rem;
+  color: #888;
+  background: linear-gradient(135deg, #0a0a08 0%, #0f0f0a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #f1c94f 50%,
+    transparent 100%
+  );
 }
 
 .footer a {
   font-weight: 600;
-  margin: 0;
-  transition: transform 0.3s ease, color 0.3s ease;
+  color: #f1c94f;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .footer a:hover {
-  text-decoration: none;
+  color: #ffd700;
   transform: scale(1.05);
-  color: var(--dark);
 }
 
-.customStrike {
-  position: relative;
-  display: inline-block;
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
 
-.customStrike::after {
-  content: "";
-  position: absolute;
-  bottom: 6px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color:  var(--dark);
-}
-
-@media (max-width: 1350px) {
+/* Responsividade */
+@media (max-width: 1600px) {
   .addressSection {
+    padding: 3rem 6rem;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .addressSection {
+    padding: 3rem 4rem;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .addressSection {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
     padding: 3rem 2rem;
-  }
-}
-
-@media (max-width: 1050px) {
-  .addressSection {
-    display: flex;
-    gap: 3rem;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    min-height: auto;
   }
 
+  .logoArea,
+  .contactArea,
   .ctaColumn {
     align-items: center;
-  }
-
-  .itens {
-    align-items: center;
+    text-align: center;
   }
 
   .itens span {
     justify-content: center;
   }
+
+  .ctaColumn {
+    align-items: center;
+  }
 }
 
+@media (max-width: 768px) {
+  .addressSection {
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .logoArea,
+  .contactArea,
+  .ctaColumn {
+    padding: 1.5rem;
+  }
+
+  .logoArea img {
+    width: 140px;
+  }
+
+  .contactArea h2 {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .ctaColumn h2 {
+    font-size: 1.2rem;
+  }
+
+  .itens span {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .itens span div strong {
+    font-size: 0.9rem;
+  }
+
+  .itens span div small {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addressSection {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .logoArea,
+  .contactArea,
+  .ctaColumn {
+    padding: 1rem;
+  }
+
+  .logoArea img {
+    width: 120px;
+  }
+
+  .contactArea h2 {
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .ctaColumn h2 {
+    font-size: 1.1rem;
+  }
+
+  .ctaColumn p {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .socialIcons {
+    gap: 1rem;
+  }
+
+  .socialIcons img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logoArea,
+.contactArea,
+.ctaColumn {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.contactArea {
+  animation-delay: 0.1s;
+}
+
+.ctaColumn {
+  animation-delay: 0.2s;
+}

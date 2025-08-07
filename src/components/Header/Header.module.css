@@ -1,14 +1,21 @@
 .header {
   background: var(--gold);
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.header:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,26 +24,63 @@
 .logo {
   height: 50px;
   object-fit: contain;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 
 .nav a {
   text-decoration: none;
   font-weight: 500;
   color: var(--dark);
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  letter-spacing: 0.025em;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--dark);
+  transition: var(--transition);
+  border-radius: 1px;
 }
 
 .nav a:hover {
+  color: var(--dark);
   font-weight: 600;
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
 
 .menuIcon {
   display: none;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  color: var(--dark);
+}
+
+.menuIcon:hover {
+  background: rgba(25, 26, 21, 0.1);
+  color: var(--dark);
 }
 
 @media (max-width: 768px) {
@@ -49,19 +93,26 @@
   }
 
   .menuIcon {
-    display: inline;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 }
 
 .backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 999;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: var(--transition);
 }
 
 .backdrop.show {
@@ -73,19 +124,20 @@
   position: fixed;
   top: 0;
   right: -100%;
-  width: 75%;
-  max-width: 300px;
+  width: 85%;
+  max-width: 350px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); 
-  padding: 1.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   z-index: 1000;
-  transition: right 0.3s ease;
-  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  box-shadow: var(--shadow-xl);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mobileMenu.open {
@@ -96,20 +148,51 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--dark);
-  transition: color 0.3s;
+  color: var(--text-dark);
+  transition: var(--transition);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobileMenu a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  transition: var(--transition);
+  z-index: -1;
 }
 
 .mobileMenu a:hover {
-  color: var(--gold);
+  color: white;
+  transform: translateX(5px);
+}
+
+.mobileMenu a:hover::before {
+  left: 0;
 }
 
 .closeButton {
   background: none;
   border: none;
   align-self: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  color: var(--text-dark);
+}
+
+.closeButton:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  transform: rotate(90deg);
 }
 
 @media (min-width: 769px) {

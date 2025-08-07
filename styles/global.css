@@ -9,33 +9,147 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   background-color: var(--bg-light);
   color: var(--text-dark);
+  line-height: 1.6;
 }
 
 :root {
+  /* Cores originais mantidas */
   --gold: linear-gradient(to right, #d8a527, #fce24c, #d8a527);
   --yellow: #e5b900;
   --dark: #191a15;
   --bg-light: #f6faf9;
   --gray: #777;
   --neutral: #ddd;
+
+  /* Cores principais baseadas nas originais */
+  --primary: #e5b900;
+  --primary-dark: #d8a527;
+  --primary-light: #fce24c;
+
+  /* Gradientes baseados nas cores originais */
+  --gradient-primary: linear-gradient(135deg, #d8a527 0%, #fce24c 100%);
+  --gradient-secondary: linear-gradient(135deg, #fce24c 0%, #e5b900 100%);
+  --gradient-accent: linear-gradient(135deg, #e5b900 0%, #fce24c 100%);
+  --gradient-gold: linear-gradient(135deg, #d8a527 0%, #fce24c 100%);
+
+  /* Cores neutras */
+  --dark-light: #2a2b25;
+  --bg-white: #ffffff;
+  --text-dark: #191a15;
+  --text-light: #777;
+  --text-muted: #999;
+
+  /* Cores de destaque baseadas nas originais */
+  --accent: #e5b900;
+  --accent-light: #fce24c;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Bordas */
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+
+  /* Transições */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title {
   text-align: center;
-  letter-spacing: 0.4rem;
-  font-size: 2rem;
-  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
   margin-bottom: 3rem;
-  color: #111;
+  color: var(--text-dark);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-
 
 a {
   text-decoration: none;
   color: currentColor;
   font-weight: 600;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
+}
+
+/* Utilitários */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Animações globais */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out;
 }

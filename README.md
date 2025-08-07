@@ -1,54 +1,121 @@
-# React + TypeScript + Vite
+# Impacto Consultoria & Gestão Empresarial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site moderno e responsivo da Impacto Consultoria & Gestão Empresarial, desenvolvido com React, TypeScript e Vite.
 
-Currently, two official plugins are available:
+## 🎨 Design Moderno com Identidade Preservada
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O site passou por uma **repaginada completa** mantendo as **cores originais** da empresa:
 
-## Expanding the ESLint configuration
+### ✨ Novas Características
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Design Glassmorphism** - Efeitos de vidro e transparência
+- **Gradientes Elegantes** - Baseados nas cores originais da empresa
+- **Animações Fluidas** - Transições suaves e efeitos de hover
+- **Layout Responsivo** - Perfeito para todos os dispositivos
+- **Tipografia Moderna** - Fonte Inter com hierarquia visual clara
+- **Identidade Preservada** - Cores e marca mantidas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 🚀 Melhorias Implementadas
+
+#### Header
+
+- Header com gradiente dourado original
+- Navegação com animações de underline
+- Menu mobile moderno com backdrop blur
+
+#### Hero Section
+
+- Gradiente dourado dinâmico com partículas flutuantes
+- Animações de entrada escalonadas
+- Texto com efeitos de brilho nas cores originais
+
+#### Seções de Conteúdo
+
+- **Clientes**: Cards elegantes com efeito hover
+- **Soluções**: Grid responsivo com ícones animados
+- **Sobre Nós**: Layout em cards com fotos profissionais
+- **Contato**: Design dark com gradientes dourados
+
+#### Componentes
+
+- **Botões**: Gradientes dourados com efeitos de brilho
+- **WhatsApp**: Botão flutuante com animação de pulso
+- **Cards**: Sombras e transições suaves
+
+## 🛠️ Tecnologias
+
+- **React 19** - Framework principal
+- **TypeScript** - Tipagem estática
+- **Vite** - Build tool rápido
+- **CSS Modules** - Estilos modulares
+- **Framer Motion** - Animações
+- **Phosphor Icons** - Ícones modernos
+
+## 🎯 Paleta de Cores Original
+
+```css
+/* Cores originais da empresa */
+--gold: linear-gradient(to right, #d8a527, #fce24c, #d8a527)
+--yellow: #e5b900
+--dark: #191a15
+--bg-light: #f6faf9
+
+/* Gradientes baseados nas cores originais */
+--gradient-primary: linear-gradient(135deg, #d8a527 0%, #fce24c 100%)
+--gradient-secondary: linear-gradient(135deg, #fce24c 0%, #e5b900 100%)
+--accent: #e5b900
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📱 Responsividade
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Desktop**: Layout completo com grid de 3 colunas
+- **Tablet**: Adaptação para 2 colunas
+- **Mobile**: Layout de 1 coluna otimizado
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 🚀 Como Executar
+
+```bash
+# Instalar dependências
+npm install
+
+# Executar em desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
 ```
+
+## 🎨 Características do Design
+
+### Efeitos Visuais
+
+- **Glassmorphism**: Efeitos de vidro e transparência
+- **Gradientes Dourados**: Baseados nas cores originais
+- **Sombras**: Sistema de sombras consistente
+- **Animações**: Transições suaves e naturais
+
+### UX/UI
+
+- **Navegação Intuitiva**: Menu claro e acessível
+- **Call-to-Actions**: Botões destacados e atrativos
+- **Hierarquia Visual**: Tipografia bem estruturada
+- **Micro-interações**: Feedback visual em hover
+
+### Performance
+
+- **CSS Otimizado**: Variáveis CSS para consistência
+- **Animações Hardware-Accelerated**: Performance fluida
+- **Lazy Loading**: Carregamento otimizado
+- **Responsive Images**: Imagens adaptativas
+
+## 📞 Contato
+
+**Impacto Consultoria & Gestão Empresarial**
+
+- 📞 (34) 3484-9810
+- 📍 Rua São Vicente de Paulo, 07 - Sala 04, Uberlândia - MG
+- 🌐 contato@seudominio.com.br
+
+---
+
+_Desenvolvido com ❤️ mantendo a identidade visual da empresa_

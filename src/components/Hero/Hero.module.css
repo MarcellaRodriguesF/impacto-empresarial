@@ -2,13 +2,20 @@
   background-image: url("/hero-img.jpg");
   background-size: cover;
   background-position: center;
-  height: 600px;
+  background-attachment: fixed;
+  height: 100vh;
   position: relative;
-  color: var(--dark);
+  color: white;
+  overflow: hidden;
 }
 
 .overlay {
-  background-color: rgba(12, 12, 12, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   width: 100%;
   height: 100%;
   display: flex;
@@ -16,47 +23,217 @@
   align-items: center;
   text-align: center;
   padding: 0 1rem;
+  position: relative;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(241, 201, 79, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(241, 201, 79, 0.08) 0%,
+      transparent 50%
+    );
+  animation: subtleFloat 20s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+  }
 }
 
 .content {
-  max-width: 800px;
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
 }
 
-h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  line-height: 1.2;
+/* Badge de credibilidade */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(241, 201, 79, 0.15);
+  border: 1px solid rgba(241, 201, 79, 0.3);
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #f1c94f;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 1s ease-out 0.2s both;
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  background: rgba(241, 201, 79, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(241, 201, 79, 0.3);
+}
+
+.badge svg {
+  color: #f1c94f;
+}
+
+/* Título principal */
+.animarTitulo {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.4s both;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .amarelo {
-  background: var(--gold);
+  background: linear-gradient(135deg, #f1c94f 0%, #ffd700 50%, #f1c94f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  display: inline-block;
 }
 
-.decoracao {
-  margin: 1rem 0;
-  max-width: 100%;
-  animation: fadeInUp 1s ease-out forwards;
+/* Linha decorativa */
+.decorativeLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  animation: fadeInUp 1s ease-out 0.6s both;
 }
 
-p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+.line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #f1c94f 50%,
+    transparent 100%
+  );
+  border-radius: 1px;
+}
+
+/* Parágrafo */
+.animarParagrafo {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out 0.8s both;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Estatísticas */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out 1s both;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  background: rgba(241, 201, 79, 0.15);
+  border-color: rgba(241, 201, 79, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(241, 201, 79, 0.2);
+}
+
+.stat svg {
+  color: #f1c94f;
+  flex-shrink: 0;
+}
+
+.stat div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat span {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
 }
 
+/* Botões de ação */
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp 1s ease-out 1.2s both;
+  flex-wrap: wrap;
+}
 
-.animarParagrafo {
-  animation: fadeInUp 1s ease-out 0.2s forwards;
-  opacity: 0;
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid rgba(241, 201, 79, 0.4);
+  border-radius: 50px;
+  color: #f1c94f;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.secondaryBtn:hover {
+  background: rgba(241, 201, 79, 0.15);
+  border-color: #f1c94f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(241, 201, 79, 0.3);
 }
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
@@ -64,6 +241,76 @@ p {
   }
 }
 
-.animarTitulo {
-  animation: fadeInUp 1s ease-out forwards;
+/* Responsividade */
+@media (max-width: 1200px) {
+  .stats {
+    gap: 1.5rem;
+  }
+
+  .stat {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+
+  .animarTitulo {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .animarParagrafo {
+    font-size: 1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .stat {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .animarTitulo {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+  }
+
+  .animarParagrafo {
+    font-size: 0.9rem;
+  }
+
+  .stat strong {
+    font-size: 1.1rem;
+  }
+
+  .stat span {
+    font-size: 0.75rem;
+  }
 }

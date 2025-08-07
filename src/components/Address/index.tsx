@@ -1,4 +1,10 @@
-import { Buildings, EnvelopeSimple, MapPin, Phone } from "phosphor-react";
+import {
+  Buildings,
+  EnvelopeSimple,
+  MapPin,
+  Phone,
+  WhatsappLogo,
+} from "phosphor-react";
 import { ButtonContact } from "../ButtonContact";
 import styles from "./Address.module.css";
 
@@ -13,49 +19,77 @@ export default function Address() {
               href="https://www.instagram.com/impactogestaoempresarial/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Siga-nos no Instagram"
             >
               <img src="/logo-instagram.svg" alt="Instagram" width={20} />
             </a>
+            <a
+              href="https://www.facebook.com/impactogestaoempresarial"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Siga-nos no Facebook"
+            >
+              <img src="/logo-facebook.svg" alt="Facebook" width={20} />
+            </a>
+            <a
+              href="https://wa.me/553434849810"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Entre em contato via WhatsApp"
+            >
+              <WhatsappLogo size={20} color="#25D366" weight="fill" />
+            </a>
           </div>
         </div>
-        {/* Coluna 2 - Contato */}
+
         <div className={`${styles.column} ${styles.contactArea}`}>
           <h2>CONTATO</h2>
           <div className={styles.itens}>
             <span>
-              <Phone size={32} color="var(--gray)" /> (34) 3484-9810
+              <Phone size={24} color="#f1c94f" weight="fill" />
+              <div>
+                <strong>(34) 3484-9810</strong>
+                <small>Segunda a Sexta, 8h às 18h</small>
+              </div>
             </span>
 
             <span>
-              {" "}
-              <Buildings size={32} color="var(--gray)" /> Rua São Vicente de
-              Paulo, 07 - Sala 04
+              <Buildings size={24} color="#f1c94f" weight="fill" />
+              <div>
+                <strong>Rua São Vicente de Paulo, 07 - Sala 04</strong>
+                <small>Centro, Uberlândia - MG</small>
+              </div>
             </span>
+
             <span>
-              <MapPin size={32} color="var(--gray)" /> Uberlândia - MG
-            </span>
-            <span>
-              <EnvelopeSimple size={32} color="var(--gray)" />{" "}
-              contato@seudominio.com.br
+              <MapPin size={24} color="#f1c94f" weight="fill" />
+              <div>
+                <strong>Uberlândia - MG</strong>
+                <small>Atendemos toda a região</small>
+              </div>
             </span>
           </div>
         </div>
         <div className={styles.ctaColumn}>
           <h2>Vamos conversar?</h2>
           <p>
-            Entre em contato com a gente e descubra <br />
-            como podemos ajudar sua empresa a crescer.
+            Entre em contato conosco e descubra como podemos transformar sua
+            empresa através de soluções personalizadas e resultados mensuráveis.
           </p>
           <ButtonContact />
         </div>
       </section>
 
       <footer className={styles.footer}>
-        {" "}
-        © 2025 Todos os direitos reservados | Desenvolvido por{" "}
-        <a href="https://www.instagram.com/hidedesign_/" target="_blank">
-          <span className={styles.customStrike}>hide</span>
-          design
+        © 2025 Impacto Gestão Empresarial. Todos os direitos reservados |
+        Desenvolvido por{" "}
+        <a
+          href="https://www.instagram.com/yello.code/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visite o portfólio da Yello Code"
+        >
+          yello.code ♡
         </a>
       </footer>
     </>

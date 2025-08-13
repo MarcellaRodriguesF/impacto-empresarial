@@ -1,6 +1,5 @@
 import {
   Buildings,
-  EnvelopeSimple,
   MapPin,
   Phone,
   WhatsappLogo,

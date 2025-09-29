@@ -8,7 +8,7 @@
   align-items: start;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .addressSection::before {

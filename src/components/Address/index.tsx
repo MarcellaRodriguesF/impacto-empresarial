@@ -36,7 +36,7 @@ export default function Address() {
               rel="noopener noreferrer"
               aria-label="Entre em contato via WhatsApp"
             >
-              <WhatsappLogo size={20} color="#25D366" weight="fill" />
+               <img src="/logo-wpp.svg" alt="WhatsApp" width={20} />
             </a>
           </div>
         </div>

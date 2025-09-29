@@ -1,8 +1,7 @@
 import {
   Buildings,
   MapPin,
-  Phone,
-  WhatsappLogo,
+  Phone
 } from "phosphor-react";
 import { ButtonContact } from "../ButtonContact";
 import styles from "./Address.module.css";

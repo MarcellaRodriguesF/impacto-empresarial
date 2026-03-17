@@ -9,7 +9,7 @@ import styles from "./Address.module.css";
 export default function Address() {
   return (
     <>
-      <section className={styles.addressSection}>
+      <section id="contato" className={styles.addressSection}>
         <div className={`${styles.column} ${styles.logoArea}`}>
           <img src="/logo_white.svg" alt="Logo da empresa" width={150} />
           <div className={styles.socialIcons}>

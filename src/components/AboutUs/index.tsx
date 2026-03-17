@@ -69,7 +69,7 @@ export function AboutUs() {
         />
         <p>
           <strong>
-            Prêmio Melhores do Ano 2023 & 2024 pela Otimiza Pesquisas!
+            Prêmio Melhores do Ano 2023, 2024 e 2025 pela Otimiza Pesquisas!
           </strong>
           <br />
           1º Lugar na categoria Assessoria Empresarial em Uberlândia/MG.

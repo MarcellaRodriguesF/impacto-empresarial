@@ -1,19 +1,18 @@
 import { WhatsappLogo } from "phosphor-react";
 import styles from "./WhatsAppButton.module.css";
+import { whatsappLink } from "../../lib/contact";
 
 export default function WhatsAppButton() {
-  const mensagem = encodeURIComponent(
-    "Olá! Vim do site e tenho interesse em saber mais sobre seus serviços."
-  );
-
   return (
     <a
-      href={`https://wa.me/553434849810?text=${mensagem}`}
+      href={whatsappLink()}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.whatsAppButton}
+      aria-label="Falar no WhatsApp"
     >
-      <WhatsappLogo size={40} color="#FFF" weight="fill" />
+      <WhatsappLogo size={32} color="#FFF" weight="fill" />
+      <span className={styles.tooltip}>Fale conosco</span>
     </a>
   );
 }

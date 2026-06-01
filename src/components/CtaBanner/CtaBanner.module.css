@@ -1,0 +1,119 @@
+.section {
+  padding: clamp(3rem, 7vh, 5rem) 0;
+  background: var(--paper-soft);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-ink);
+  border: 1px solid var(--line-gold);
+  padding: clamp(2.5rem, 6vw, 5rem);
+  box-shadow: var(--shadow-xl);
+  isolation: isolate;
+}
+
+.glow {
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 60%;
+  height: 160%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 162, 39, 0.28) 0%,
+    transparent 60%
+  );
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  max-width: 720px;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  color: #fff;
+  margin: 1rem 0 1.25rem;
+  line-height: 1.08;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-on-dark-soft);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.bullets {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.bullets li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  color: var(--text-on-dark);
+}
+
+.bullets svg {
+  color: var(--gold-200);
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.1rem 2rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink-900);
+  background: var(--gradient-gold);
+  box-shadow: var(--shadow-gold);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 64px -18px rgba(201, 162, 39, 0.65);
+}
+
+.primary svg:last-child {
+  transition: transform 0.3s var(--ease);
+}
+
+.primary:hover svg:last-child {
+  transform: translateX(4px);
+}
+
+.note {
+  font-size: 0.88rem;
+  color: var(--text-on-dark-soft);
+}
+
+@media (max-width: 520px) {
+  .primary {
+    width: 100%;
+    justify-content: center;
+  }
+}

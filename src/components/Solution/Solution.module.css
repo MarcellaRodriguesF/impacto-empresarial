@@ -1,202 +1,184 @@
-.solutionsSection {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+.section {
+  padding: clamp(5rem, 10vh, 8rem) 0;
+  background: var(--paper-soft);
   position: relative;
-  overflow: hidden;
 }
 
-.solutionsSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-      circle at 20% 80%,
-      rgba(216, 165, 39, 0.05) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(252, 226, 76, 0.05) 0%,
-      transparent 50%
-    );
-  pointer-events: none;
+/* ---- Cabeçalho da seção ---- */
+.header {
+  max-width: 720px;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .title {
-  text-align: center;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-  letter-spacing: 0.1em;
-  position: relative;
-  z-index: 2;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 1rem 0 1.25rem;
 }
 
-.content {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.description {
-  text-align: center;
+.intro {
   font-size: 1.1rem;
-  color: var(--text-light);
-  margin-bottom: 4rem;
+  line-height: 1.65;
+  color: var(--text-soft);
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
 }
 
-.services {
+/* ---- Grade ---- */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.serviceItem {
-  background: var(--bg-white);
-  border-radius: var(--border-radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Card ---- */
+.card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+    border-color 0.4s var(--ease);
 }
 
-.serviceItem::before {
+/* faixa dourada que surge no topo */
+.card::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: var(--gradient-primary);
+  height: 3px;
+  background: var(--gradient-gold);
   transform: scaleX(0);
-  transition: var(--transition);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
 }
 
-.serviceItem:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-xl);
-}
-
-.serviceItem:hover::before {
-  transform: scaleX(1);
-}
-
-.containerIcon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(
-    135deg,
-    rgba(216, 165, 39, 0.1) 0%,
-    rgba(252, 226, 76, 0.1) 100%
-  );
-  border-radius: var(--border-radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: var(--transition);
-}
-
-.serviceItem:hover .containerIcon {
-  transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(
-    135deg,
-    rgba(216, 165, 39, 0.2) 0%,
-    rgba(252, 226, 76, 0.2) 100%
-  );
-}
-
-.serviceItem h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.serviceItem p {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* Efeito de brilho */
-.serviceItem::after {
+/* brilho radial suave seguindo o hover */
+.card::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transition: var(--transition);
+  top: -40%;
+  right: -20%;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.14), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
   pointer-events: none;
 }
 
-.serviceItem:hover::after {
-  left: 100%;
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--line-gold);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .solutionsSection {
-    padding: 4rem 0;
-  }
-
-  .content {
-    padding: 0 1rem;
-  }
-
-  .services {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .serviceItem {
-    padding: 2rem;
-  }
-
-  .containerIcon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .serviceItem h3 {
-    font-size: 1.2rem;
-  }
+.card:hover::before {
+  transform: scaleX(1);
 }
 
-/* Animações de entrada */
-.serviceItem {
-  opacity: 0;
-  transform: translateY(30px);
+.card:hover::after {
+  opacity: 1;
 }
 
-.serviceItem.animate {
-  animation: slideInUp 0.6s ease-out forwards;
+/* Card em destaque */
+.featured {
+  background: var(--gradient-ink);
+  border-color: transparent;
+  color: var(--text-on-dark);
 }
 
-@keyframes slideInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.featured::before {
+  transform: scaleX(1);
+}
+
+.featured .cardTitle {
+  color: #fff;
+}
+
+.featured .cardDesc {
+  color: var(--text-on-dark-soft);
+}
+
+.featured .iconWrap {
+  background: rgba(201, 162, 39, 0.16);
+  color: var(--gold-200);
+}
+
+.featured .benefit {
+  color: var(--gold-200);
+}
+
+/* ---- Ícone ---- */
+.iconWrap {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--gold-500);
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s var(--ease);
+}
+
+.card:hover .iconWrap {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+.cardDesc {
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.benefit {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-600);
+  padding-top: 1.1rem;
+  border-top: 1px dashed var(--line-strong);
+}
+
+.featured .benefit {
+  border-top-color: rgba(255, 255, 255, 0.14);
+}
+
+.benefit svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 1.75rem;
   }
 }

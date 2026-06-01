@@ -1,259 +1,233 @@
-.about {
-  padding: 6rem 0;
-  background: var(--bg-white);
+.section {
+  padding: clamp(5rem, 10vh, 8rem) 0;
+  background: var(--paper);
   position: relative;
-  overflow: hidden;
 }
 
-.about::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-      circle at 30% 70%,
-      rgba(216, 165, 39, 0.03) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 70% 30%,
-      rgba(252, 226, 76, 0.03) 0%,
-      transparent 50%
-    );
-  pointer-events: none;
+/* ---- Topo: intro + selo ---- */
+.top {
+  display: grid;
+  grid-template-columns: 1.55fr 0.95fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+@media (max-width: 900px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
 }
 
 .title {
-  text-align: center;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 4rem;
-  color: var(--text-dark);
-  letter-spacing: 0.1em;
-  position: relative;
-  z-index: 2;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 1rem 0 1.25rem;
 }
 
-.title::after {
+.lead {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin-bottom: 2.5rem;
+  max-width: 620px;
+}
+
+/* ---- Diferenciais ---- */
+.diffList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.diff {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.diffIcon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--gold-500);
+  transition: var(--transition);
+}
+
+.diff:hover .diffIcon {
+  background: var(--gradient-gold);
+  color: var(--ink-900);
+  transform: translateY(-2px);
+}
+
+.diff h4 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.25rem;
+  color: var(--text-strong);
+}
+
+.diff p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+}
+
+/* ---- Selo de prêmio ---- */
+.awardCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-ink);
+  color: var(--text-on-dark);
+  border: 1px solid var(--line-gold);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.awardCard::before {
   content: "";
   position: absolute;
-  bottom: -10px;
+  top: -30%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: var(--gradient-primary);
-  border-radius: 2px;
-}
-
-.members {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 3rem;
-  position: relative;
-  z-index: 2;
-}
-
-.member {
-  background: var(--bg-white);
-  border-radius: var(--border-radius-xl);
-  padding: 3rem;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.member::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gradient-primary);
-  transform: scaleX(0);
-  transition: var(--transition);
-}
-
-.member:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-xl);
-}
-
-.member:hover::before {
-  transform: scaleX(1);
-}
-
-.photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 2rem;
-  border: 4px solid var(--bg-white);
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-}
-
-.member:hover .photo {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-lg);
-}
-
-.info {
-  flex: 1;
-}
-
-.name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 1rem;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.description {
-  color: var(--text-light);
-  line-height: 1.7;
-  font-size: 0.95rem;
-  text-align: justify;
-}
-
-.awards {
-  max-width: 1280px;
-  margin: 4rem auto 0;
-  padding: 0 2rem;
-  text-align: center;
-  background: linear-gradient(
-    135deg,
-    rgba(216, 165, 39, 0.05) 0%,
-    rgba(252, 226, 76, 0.05) 100%
-  );
-  border-radius: var(--border-radius-lg);
-  padding: 3rem;
-  position: relative;
-  z-index: 2;
-  border: 1px solid rgba(216, 165, 39, 0.1);
-}
-
-.awardImage {
-  width: 120px;
-  height: auto;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-  transition: var(--transition);
-}
-
-.awards:hover .awardImage {
-  transform: scale(1.05);
-}
-
-.awards p {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.awards strong {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-/* Efeito de brilho */
-.member::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
-  transition: var(--transition);
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.25), transparent 70%);
   pointer-events: none;
 }
 
-.member:hover::after {
-  left: 100%;
+.awardCard img {
+  width: 110px;
+  height: auto;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+  position: relative;
 }
 
-/* Responsividade */
+.trophy {
+  color: var(--gold-200);
+  margin-bottom: 0.5rem;
+}
+
+.awardCard strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: #fff;
+}
+
+.years {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--gold-200);
+  margin: 0.4rem 0 1rem;
+}
+
+.awardCard p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-on-dark-soft);
+}
+
+.awardCard b {
+  color: #fff;
+}
+
+/* ---- Sócios ---- */
+.partnersLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 1.75rem;
+}
+
+.partnersGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
 @media (max-width: 768px) {
-  .about {
-    padding: 4rem 0;
-  }
-
-  .members {
+  .partnersGrid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
-  }
-
-  .member {
-    padding: 2rem;
-  }
-
-  .photo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .name {
-    font-size: 1.3rem;
-  }
-
-  .awards {
-    margin: 3rem auto 0;
-    padding: 2rem 1rem;
-  }
-
-  .awardImage {
-    width: 100px;
-  }
-
-  .awards p {
-    font-size: 1rem;
   }
 }
 
-/* Animações de entrada */
-.member {
-  opacity: 0;
-  transform: translateY(30px);
+.partner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 2rem;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
 }
 
-.member.animate {
-  animation: slideInUp 0.6s ease-out forwards;
+.partner:hover {
+  border-color: var(--line-gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
-.awards {
-  opacity: 0;
-  transform: translateY(30px);
+.photoWrap {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--gradient-gold);
 }
 
-.awards.animate {
-  animation: slideInUp 0.6s ease-out 0.3s forwards;
+.photoWrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--paper);
 }
 
-@keyframes slideInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.partnerInfo h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.partnerRole {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 0.85rem;
+}
+
+.partnerInfo p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+@media (max-width: 480px) {
+  .partner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.75rem;
   }
 }

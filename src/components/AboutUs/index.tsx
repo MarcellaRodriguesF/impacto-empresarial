@@ -1,80 +1,120 @@
-import { motion } from "framer-motion";
+import {
+  Scales,
+  Strategy,
+  Handshake,
+  Trophy,
+  GraduationCap,
+} from "phosphor-react";
 import styles from "./AboutUs.module.css";
+import { Reveal } from "../ui/Reveal";
+
+const DIFFERENTIALS = [
+  {
+    icon: Scales,
+    title: "Visão jurídica + gestão",
+    text: "Estratégia de negócio aliada a segurança jurídica real, não só teoria.",
+  },
+  {
+    icon: Strategy,
+    title: "Soluções integradas",
+    text: "Todas as áreas conversando entre si, sob um único comando estratégico.",
+  },
+  {
+    icon: Handshake,
+    title: "Atendimento próximo",
+    text: "Acompanhamento contínuo e consultivo — você nunca fica sozinho.",
+  },
+];
+
+const PARTNERS = [
+  {
+    photo: "/kauedelnero.png",
+    name: "Kauê Del Nero",
+    role: "Sócio · Jurídico & Tributário",
+    credentials:
+      "Bacharel em Direito, especialista em Direito e Processo do Trabalho, Direito Tributário Empresarial e Gestão Empresarial. Professor de Direito, traz visão estratégica e segurança legal para as empresas atendidas.",
+  },
+  {
+    photo: "/lucasveiga.png",
+    name: "Lucas Veiga",
+    role: "Sócio · Gestão & Negócios",
+    credentials:
+      "Bacharel em Direito, especialista em Direito Civil, Consumerista e Imobiliário, além de Gestão Empresarial. Professor e empresário, une conhecimento técnico e experiência prática para o crescimento sustentável dos negócios.",
+  },
+];
 
 export function AboutUs() {
   return (
-    <section id="quemsomos" className={styles.about}>
-      <h2 className={styles.title}>QUEM SOMOS</h2>
-
-      <div className={styles.members}>
-        <motion.div
-          className={styles.member}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-        >
-          <img
-            className={styles.photo}
-            src="/kauedelnero.png"
-            alt="Kauê Del Nero"
-          />
-          <div className={styles.info}>
-            <h3 className={styles.name}>Kauê Del Nero</h3>
-            <p className={styles.description}>
-              Bacharel em Direito, com especialização em Direito e Processo do
-              Trabalho, Direito Tributário Empresarial e Gestão Empresarial.
-              Além de ser professor de Direito, Kauê traz uma visão estratégica
-              e jurídica sólida, contribuindo para a otimização de processos e a
-              segurança legal das empresas atendidas.
+    <section id="autoridade" className={styles.section}>
+      <div className="container">
+        <div className={styles.top}>
+          <Reveal className={styles.intro}>
+            <span className="eyebrow">Quem somos</span>
+            <h2 className={styles.title}>
+              Autoridade construída com{" "}
+              <span className="text-gold">técnica, ética e resultado</span>
+            </h2>
+            <p className={styles.lead}>
+              A Impacto Consultoria & Gestão Empresarial nasceu para ser referência
+              em assessoria empresarial. Unimos direito, gestão e estratégia em um
+              só lugar, ajudando empresas a crescerem com organização, segurança e
+              previsibilidade.
             </p>
-          </div>
-        </motion.div>
 
-        <motion.div
-          className={styles.member}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <img
-            className={styles.photo}
-            src="/lucasveiga.png"
-            alt="Lucas Veiga"
-          />
-          <div className={styles.info}>
-            <h3 className={styles.name}>Lucas Veiga</h3>
-            <p className={styles.description}>
-              Bacharel em Direito, especialista em Direito e Processo Civil,
-              Direito Consumerista e Imobiliário, além de Gestão Empresarial.
-              Professor e empresário, Lucas combina conhecimento técnico com
-              experiência prática, focando em soluções integradas para o
-              crescimento sustentável dos negócios.
+            <div className={styles.diffList}>
+              {DIFFERENTIALS.map((d) => {
+                const Icon = d.icon;
+                return (
+                  <div className={styles.diff} key={d.title}>
+                    <div className={styles.diffIcon}>
+                      <Icon size={22} weight="duotone" />
+                    </div>
+                    <div>
+                      <h4>{d.title}</h4>
+                      <p>{d.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Reveal>
+
+          <Reveal className={styles.awardCard} delay={0.15}>
+            <img src="/selo-premio.png" alt="Selo Prêmio Melhores do Ano" />
+            <Trophy size={26} weight="fill" className={styles.trophy} />
+            <strong>Prêmio Melhores do Ano</strong>
+            <span className={styles.years}>2023 · 2024 · 2025</span>
+            <p>
+              1º lugar na categoria <b>Assessoria Empresarial</b> em
+              Uberlândia/MG, pela Otimiza Pesquisas.
             </p>
+          </Reveal>
+        </div>
+
+        <div className={styles.partners}>
+          <Reveal>
+            <span className={styles.partnersLabel}>
+              <GraduationCap size={18} weight="duotone" />
+              Liderança especializada
+            </span>
+          </Reveal>
+
+          <div className={styles.partnersGrid}>
+            {PARTNERS.map((p, i) => (
+              <Reveal key={p.name} delay={i * 0.12} className={styles.partner}>
+                <div className={styles.photoWrap}>
+                  <img src={p.photo} alt={p.name} />
+                </div>
+                <div className={styles.partnerInfo}>
+                  <h3>{p.name}</h3>
+                  <span className={styles.partnerRole}>{p.role}</span>
+                  <p>{p.credentials}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-
-      <motion.div
-        className={styles.awards}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <img
-          src="/selo-premio.png"
-          alt="Prêmio Melhores do Ano"
-          className={styles.awardImage}
-        />
-        <p>
-          <strong>
-            Prêmio Melhores do Ano 2023, 2024 e 2025 pela Otimiza Pesquisas!
-          </strong>
-          <br />
-          1º Lugar na categoria Assessoria Empresarial em Uberlândia/MG.
-        </p>
-      </motion.div>
     </section>
   );
 }

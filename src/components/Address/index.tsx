@@ -1,95 +1,132 @@
 import {
   Buildings,
   MapPin,
-  Phone
+  Phone,
+  WhatsappLogo,
+  ArrowUpRight,
 } from "phosphor-react";
-import { ButtonContact } from "../ButtonContact";
 import styles from "./Address.module.css";
+import { CONTACT, whatsappLink } from "../../lib/contact";
+
+const NAV = [
+  { href: "#solucoes", label: "Soluções" },
+  { href: "#autoridade", label: "Quem somos" },
+  { href: "#resultados", label: "Resultados" },
+  { href: "#home", label: "Início" },
+];
+
+const SOLUTIONS = [
+  "Gestão Empresarial",
+  "Contábil e Tributário",
+  "RH e Segurança",
+  "Jurídico Preventivo",
+];
 
 export default function Address() {
+  const year = new Date().getFullYear();
+
   return (
-    <>
-      <section id="contato" className={styles.addressSection}>
-        <div className={`${styles.column} ${styles.logoArea}`}>
-          <img src="/logo_white.svg" alt="Logo da empresa" width={150} />
-          <div className={styles.socialIcons}>
-            <a
-              href="https://www.instagram.com/impactogestaoempresarial/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Siga-nos no Instagram"
-            >
-              <img src="/logo-instagram.svg" alt="Instagram" width={20} />
+    <footer id="contato" className={styles.footer}>
+      <div className={styles.top} />
+
+      <div className={styles.inner}>
+        {/* Marca */}
+        <div className={styles.brandCol}>
+          <img src="/logo_white.svg" alt="Impacto Consultoria & Gestão" className={styles.logo} />
+          <p className={styles.tagline}>
+            Consultoria e gestão empresarial que transforma organização em
+            resultado. Premiada como referência em Uberlândia/MG.
+          </p>
+          <div className={styles.social}>
+            <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="/logo-instagram.svg" alt="" width={20} height={20} />
             </a>
-            <a
-              href="https://www.facebook.com/impactogestaoempresarial"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Siga-nos no Facebook"
-            >
-              <img src="/logo-facebook.svg" alt="Facebook" width={20} />
+            <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <img src="/logo-facebook.svg" alt="" width={20} height={20} />
             </a>
-            <a
-              href="https://wa.me/553434849810"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Entre em contato via WhatsApp"
-            >
-               <img src="/logo-wpp.svg" alt="WhatsApp" width={20} />
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <img src="/logo-wpp.svg" alt="" width={20} height={20} />
             </a>
           </div>
         </div>
 
-        <div className={`${styles.column} ${styles.contactArea}`}>
-          <h2>CONTATO</h2>
-          <div className={styles.itens}>
-            <span>
-              <Phone size={24} color="#f1c94f" weight="fill" />
-              <div>
-                <strong>(34) 3484-9810</strong>
-                <small>Segunda a Sexta, 8h às 18h</small>
-              </div>
-            </span>
+        {/* Navegação */}
+        <nav className={styles.linksCol} aria-label="Navegação">
+          <h3>Navegação</h3>
+          <ul>
+            {NAV.map((item) => (
+              <li key={item.href}>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-            <span>
-              <Buildings size={24} color="#f1c94f" weight="fill" />
-              <div>
-                <strong>Rua São Vicente de Paulo, 07 - Sala 04</strong>
-                <small>Centro, Uberlândia - MG</small>
-              </div>
-            </span>
+        {/* Soluções */}
+        <div className={styles.linksCol}>
+          <h3>Soluções</h3>
+          <ul>
+            {SOLUTIONS.map((item) => (
+              <li key={item}>
+                <a href="#solucoes">{item}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-            <span>
-              <MapPin size={24} color="#f1c94f" weight="fill" />
+        {/* Contato */}
+        <div className={styles.contactCol}>
+          <h3>Contato</h3>
+          <ul className={styles.contactList}>
+            <li>
+              <Phone size={20} weight="fill" />
               <div>
-                <strong>Uberlândia - MG</strong>
+                <strong>{CONTACT.phoneLabel}</strong>
+                <small>{CONTACT.hours}</small>
+              </div>
+            </li>
+            <li>
+              <Buildings size={20} weight="fill" />
+              <div>
+                <strong>{CONTACT.addressLine}</strong>
+                <small>{CONTACT.addressCity}</small>
+              </div>
+            </li>
+            <li>
+              <MapPin size={20} weight="fill" />
+              <div>
+                <strong>Uberlândia — MG</strong>
                 <small>Atendemos toda a região</small>
               </div>
-            </span>
-          </div>
-        </div>
-        <div className={styles.ctaColumn}>
-          <h2>Vamos conversar?</h2>
-          <p>
-            Entre em contato conosco e descubra como podemos transformar sua
-            empresa através de soluções personalizadas e resultados mensuráveis.
-          </p>
-          <ButtonContact />
-        </div>
-      </section>
+            </li>
+          </ul>
 
-      <footer className={styles.footer}>
-        © 2025 Impacto Gestão Empresarial. Todos os direitos reservados |
-        Desenvolvido por{" "}
-        <a
-          href="https://www.instagram.com/yello.code/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visite o portfólio da Yello Code"
-        >
-          yello.code ♡
-        </a>
-      </footer>
-    </>
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.cta}
+          >
+            <WhatsappLogo size={20} weight="fill" />
+            Falar com especialista
+            <ArrowUpRight size={16} weight="bold" />
+          </a>
+        </div>
+      </div>
+
+      <div className={styles.bottom}>
+        <span>© {year} Impacto Consultoria & Gestão Empresarial. Todos os direitos reservados.</span>
+        <span className={styles.credit}>
+          Desenvolvido por{" "}
+          <a
+            href="https://www.instagram.com/yello.code/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            yello.code
+          </a>
+        </span>
+      </div>
+    </footer>
   );
 }
